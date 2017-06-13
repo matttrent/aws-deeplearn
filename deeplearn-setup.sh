@@ -1,11 +1,11 @@
 #!/bin/bash
 
 ####################################################################################
-## Deep Learning Box Setup Script                                                 ##
-## Michelle L. Gill, Ph.D.                                                        ##
-## michelle@michellelynngill.com                                                  ##
-## GitHub location: https://github.com/mlgill/deeplearn_setup_scripts             ##
-## Date updated: 2017/06/11                                                       ##
+## deep learning setup script                                                     ##
+## Matthew Trentacoste                                                            ##
+## web@matttrent.com                                                              ##
+## GitHub location: https://github.com/matttrent/aws-deeplearn                    ##
+## Date updated: 2017-06-13                                                       ##
 ####################################################################################
 
 # Only setup python packages--useful for rebuilding python environment
