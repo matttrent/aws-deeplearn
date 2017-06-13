@@ -163,7 +163,7 @@ sleep 1
 
 # upgrade everything, but keep python 3.5
 conda upgrade -y --all
-conda install -y python=3.5
+conda install -y -n root python=3.5
 
 # Packages for builing conda packages and searching other channels
 conda install -y -n root conda-build anaconda-client
@@ -245,7 +245,7 @@ sleep 1
 
 conda create -y -n fastai \
 python=2.7 bcolz ipython scipy numpy pandas scikit-learn pillow h5py py-xgboost \
-dask matplotlib seaborn jupyter notebook gensim nltk cudnn=$cudnn_version theano
+dask matplotlib seaborn jupyter notebook cudnn=$cudnn_version theano
 source activate fastai
 pip install keras==1.2.2
 
@@ -279,4 +279,3 @@ echo -e $BLUE"******************************************************"$NC
 echo -e $BLUE"** NOTE: this instance MUST be rebooted before use. **"$NC
 echo -e $BLUE"******************************************************"$NC
 echo ""
-
