@@ -69,6 +69,9 @@ if [[ $python_only == "false" ]]; then
 	#sudo apt-get --assume-yes upgrade
 	sudo apt-get --assume-yes install tmux vim zsh git curl openssh-server build-essential gcc g++ make cmake binutils software-properties-common graphviz 
 
+	# install zsh
+	sudo apt-get -y install zsh
+
 	if [[ $setup_vnc == 'true' ]]; then
 
 		sudo apt-get --assume-yes x11vnc
