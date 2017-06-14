@@ -73,7 +73,8 @@ then
 fi
 
 if ! grep -Fxq $instanceUrl ~/.ssh/config; then
-    echo "Host $instanceUrl" > $name-ssh-config.txt
+    echo "Host $name $instanceUrl" > $name-ssh-config.txt
+    echo " HostName $instanceUrl" >> $name-ssh-config.txt
     echo " User ubuntu" >> $name-ssh-config.txt
     echo " IdentityFile ~/.ssh/aws-key-$keyname.pem" >> $name-ssh-config.txt
     echo " IdentitiesOnly yes" >> $name-ssh-config.txt
