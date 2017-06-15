@@ -24,4 +24,4 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-. $(dirname "$0")/setup-instance.sh $1
+. $(dirname "$0")/create-instance.sh $1

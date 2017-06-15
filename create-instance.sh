@@ -19,7 +19,7 @@ fi
 
 # settings
 export name=$1
-export keyname='fast-ai'
+export keyname='deeplearn'
 export cidr="0.0.0.0/0"
 
 # BASH prompt colors
@@ -143,19 +143,19 @@ echo echo If you want to delete the key-pair, please do it manually. >> $name-re
 
 chmod +x $name-remove.sh
 
-echo $BLUE"All done."$NC
+echo -e $BLUE"All done."$NC
 echo
-echo $BLUE"Run the commands in $name-remove.sh to tear down."$NC
+echo -e $BLUE"Run the commands in $name-remove.sh to tear down."$NC
 echo
 if [ -f $name-ssh-config.txt ]
 then
-    echo $BLUE"Add the following (in $name-ssh-config.txt) to your ~/.ssh/config:"$NC
+    echo -e $BLUE"Add the following (in $name-ssh-config.txt) to your ~/.ssh/config:"$NC
     echo
     cat $name-ssh-config.txt
     echo
 fi
-echo $BLUE"Add the following (in $name-aws-instance-vars.txt) to your environment variables:"$NC
-echo $BLUE"cp $name-aws-instance-vars.txt ~/dotfiles/aws-instance-vars"$NC
+echo -e $BLUE"Add the following (in $name-aws-instance-vars.txt) to your environment variables:"$NC
+echo -e $BLUE"cp $name-aws-instance-vars.txt ~/dotfiles/aws-instance-vars"$NC
 echo 
 cat $name-aws-instance-vars.txt
 
