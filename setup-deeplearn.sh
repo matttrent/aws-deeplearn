@@ -111,6 +111,11 @@ WantedBy=multi-user.target' | sudo tee /lib/systemd/system/x11vnc.service
 
 	# sudo ln -s -f /usr/local/cuda-8.0/targets/x86_64-linux/include/* /usr/local/cuda/include/
 
+	# optimize nvidia settings, turn off adaptive clock rate, set to max
+	sudo nvidia-smi -pm 1
+	sudo nvidia-smi --auto-boost-default=0
+	sudo nvidia-smi -ac 2505,875
+
 	# # Install cudnn libraries
 	# Note this is now installed via conda since NVIDA doesn't make CUDNN available for download without a login
 	# echo ""
