@@ -252,8 +252,8 @@ echo ""
 sleep 1
 
 conda create -y -n fastai \
-python=2.7 bcolz ipython scipy numpy pandas scikit-learn pillow h5py py-xgboost \
-dask matplotlib seaborn jupyter notebook cudnn=$cudnn_version theano
+python=2.7 bcolz ipython scipy numpy pandas scikit-learn pillow h5py \
+matplotlib seaborn jupyter notebook cudnn=$cudnn_version theano
 source activate fastai
 pip install keras==1.2.2
 
