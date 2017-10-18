@@ -25,7 +25,7 @@ anaconda_python_version="Miniconda3-latest"
 python_env_name="science"
 
 nvidia_cuda_version="8.0.61"
-cudnn_version="5.1-0"
+cudnn_version="6.0"
 
 
 ############################# END USER SETTINGS #############################
@@ -194,7 +194,7 @@ echo ""
 sleep 1
 
 # The base conda repo--"science"
-conda create -y -n $python_env_name
+conda create -y -n $python_env_name python=3.5
 source activate $python_env_name
 
 conda install -y -n $python_env_name \
@@ -241,45 +241,26 @@ source activate deeplearn
 
 # Install and configure deep learning libraries 
 conda install -y -n deeplearn \
-cudnn=$cudnn_version theano tensorflow keras #caffe-gpu
+cudnn=$cudnn_version theano tensorflow-gpu keras #caffe-gpu
 
 # PyTorch installs its own CUDNN. Gross--it causes conflicts with theano. 
-#conda install -y -n deeplearn -c soumith pytorch torchvision #cuda80
+conda install -y -n deeplearn -c soumith pytorch torchvision #cuda80
 
 echo ""
 echo -e $BLUE"Installing Keras, Theano in 'fastai' environment"$NC
 echo ""
 sleep 1
 
-conda create -y -n fastai \
-python=2.7 bcolz ipython scipy numpy pandas scikit-learn pillow h5py \
-matplotlib seaborn jupyter notebook cudnn=$cudnn_version theano
-source activate fastai
-pip install keras==1.2.2
-
 if [[ ! -e $HOME/.keras ]]; then
 	mkdir $HOME/.keras
 fi
 cat > $HOME/.keras/keras.json << EOF
 {
-    "image_dim_ordering": "th",
+    "image_dim_ordering": "channels_last",
     "epsilon": 1e-07,
     "floatx": "float32",
-    "backend": "theano"
+    "backend": "tensorflow"
 }
-EOF
-
-# Install and configure theano
-cat > $HOME/.theanorc << EOF
-[global]
-device = cuda
-floatX = float32
-[cuda]
-root = /usr/local/cuda
-[dnn]
-enabled = True
-include_path = /usr/local/cuda/include
-library_path = /usr/local/cuda/lib64
 EOF
 
 echo ""
