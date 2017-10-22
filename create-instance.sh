@@ -79,6 +79,7 @@ if ! grep -Fxq $instanceUrl ~/.ssh/config; then
     echo " IdentityFile ~/.ssh/aws-key-$keyname.pem" >> $name-ssh-config.txt
     echo " IdentitiesOnly yes" >> $name-ssh-config.txt
     echo " LocalForward 9999 localhost:8888" >> $name-ssh-config.txt
+    echo " LocalForward 6006 localhost:6006" >> $name-ssh-config.txt
 fi
 
 export instanceId=$(aws ec2 run-instances --image-id $ami --count 1 --instance-type $instanceType --key-name aws-key-$keyname --security-group-ids $securityGroupId --subnet-id $subnetId --associate-public-ip-address --block-device-mapping "[ { \"DeviceName\": \"/dev/sda1\", \"Ebs\": { \"VolumeSize\": 128, \"VolumeType\": \"gp2\" } } ]" --query 'Instances[0].InstanceId' --output text)
