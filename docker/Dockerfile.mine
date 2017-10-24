@@ -1,0 +1,13 @@
+FROM matttrent/deeplearn
+
+RUN sudo apt-get -y install zsh \
+    && \
+    sudo chsh -s $(which zsh) $(whoami)
+
+RUN cd $HOME \
+    && \
+    git clone https://github.com/matttrent/dotfiles.git \
+    && \
+    cd dotfiles \
+    && \
+    bash install.sh
