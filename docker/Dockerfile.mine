@@ -1,8 +1,10 @@
 FROM matttrent/deeplearn
 
-RUN sudo apt-get -y install zsh \
+RUN apt-get update \
     && \
-    sudo chsh -s $(which zsh) $(whoami)
+    apt-get -y install zsh \
+    && \
+    chsh -s $(which zsh) $(whoami)
 
 RUN cd $HOME \
     && \
