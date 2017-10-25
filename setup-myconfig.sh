@@ -3,8 +3,9 @@
 sudo apt-get update
 
 if [[ ! $SHELL =~ 'zsh' ]]; then
+    sudo apt-get update
     sudo apt-get -y install zsh
-    sudo chsh -s $(which zsh) ubuntu
+    sudo chsh -s $(which zsh) $(whoami)
     echo "shell changed to zsh"
 fi
 

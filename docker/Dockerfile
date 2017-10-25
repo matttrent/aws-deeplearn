@@ -14,7 +14,7 @@ ARG cudnn_version="6.0"
 # Install some dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential curl pkg-config rsync software-properties-common unzip \
-    git \
+    tmux vim zsh openssh-server gcc g++ make cmake binutils git \
     && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
