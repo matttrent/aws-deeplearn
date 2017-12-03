@@ -1,5 +1,6 @@
-*-ssh-config.txt
+aws-network-vars.txt
 *-aws-instance-vars.txt
+*-ssh-config.txt
 *-commands.txt
 *-remove.sh
 
